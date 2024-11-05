@@ -40,14 +40,14 @@ namespace ConexionBBDD
         /// <param name="e"></param>
         private void btnConectar_Click(object sender, EventArgs e)
         {
-            string cadenaConexion = "Server=85.208.21.117,54321;Database=MairenEmployees;" +
+            string connectionString = "Server=85.208.21.117,54321;Database=MairenEmployees;" +
                                     "User Id=sa;" +
                                     "Password=Sql#123456789;" +
                                     "TrustServerCertificate=True;";
 
             try
             {
-                conexion = new SqlConnection(cadenaConexion);
+                conexion = new SqlConnection(connectionString);
                 conexion.Open();
                 MessageBox.Show("Conexión establecida con éxito");
                 btnConectar.Enabled = false;
