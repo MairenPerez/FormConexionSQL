@@ -32,6 +32,9 @@
             this.btnDesconectar = new System.Windows.Forms.Button();
             this.btnConectar = new System.Windows.Forms.Button();
             this.btnInsert = new System.Windows.Forms.Button();
+            this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.btnVerDatos = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // txtEstadoBBDD
@@ -40,7 +43,7 @@
             this.txtEstadoBBDD.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtEstadoBBDD.Enabled = false;
             this.txtEstadoBBDD.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEstadoBBDD.Location = new System.Drawing.Point(12, 12);
+            this.txtEstadoBBDD.Location = new System.Drawing.Point(155, 19);
             this.txtEstadoBBDD.Name = "txtEstadoBBDD";
             this.txtEstadoBBDD.Size = new System.Drawing.Size(393, 20);
             this.txtEstadoBBDD.TabIndex = 0;
@@ -51,7 +54,7 @@
             // btnDesconectar
             // 
             this.btnDesconectar.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDesconectar.Location = new System.Drawing.Point(217, 58);
+            this.btnDesconectar.Location = new System.Drawing.Point(360, 65);
             this.btnDesconectar.Name = "btnDesconectar";
             this.btnDesconectar.Size = new System.Drawing.Size(188, 42);
             this.btnDesconectar.TabIndex = 2;
@@ -62,7 +65,7 @@
             // btnConectar
             // 
             this.btnConectar.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConectar.Location = new System.Drawing.Point(12, 58);
+            this.btnConectar.Location = new System.Drawing.Point(155, 65);
             this.btnConectar.Name = "btnConectar";
             this.btnConectar.Size = new System.Drawing.Size(182, 42);
             this.btnConectar.TabIndex = 3;
@@ -73,7 +76,7 @@
             // btnInsert
             // 
             this.btnInsert.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInsert.Location = new System.Drawing.Point(111, 117);
+            this.btnInsert.Location = new System.Drawing.Point(254, 124);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(182, 42);
             this.btnInsert.TabIndex = 4;
@@ -81,11 +84,34 @@
             this.btnInsert.UseVisualStyleBackColor = true;
             this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
+            // dataGridView
+            // 
+            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Location = new System.Drawing.Point(39, 255);
+            this.dataGridView.Name = "dataGridView";
+            this.dataGridView.RowHeadersWidth = 51;
+            this.dataGridView.RowTemplate.Height = 24;
+            this.dataGridView.Size = new System.Drawing.Size(623, 355);
+            this.dataGridView.TabIndex = 5;
+            // 
+            // btnVerDatos
+            // 
+            this.btnVerDatos.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerDatos.Location = new System.Drawing.Point(254, 181);
+            this.btnVerDatos.Name = "btnVerDatos";
+            this.btnVerDatos.Size = new System.Drawing.Size(182, 42);
+            this.btnVerDatos.TabIndex = 6;
+            this.btnVerDatos.Text = "Ver datos";
+            this.btnVerDatos.UseVisualStyleBackColor = true;
+            this.btnVerDatos.Click += new System.EventHandler(this.btnVerDatos_Click);
+            // 
             // ConexionSQL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(417, 414);
+            this.ClientSize = new System.Drawing.Size(709, 622);
+            this.Controls.Add(this.btnVerDatos);
+            this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.btnInsert);
             this.Controls.Add(this.btnConectar);
             this.Controls.Add(this.btnDesconectar);
@@ -93,6 +119,7 @@
             this.Name = "ConexionSQL";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Conexión  a SQL";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -104,6 +131,8 @@
         private System.Windows.Forms.Button btnDesconectar;
         private System.Windows.Forms.Button btnConectar;
         private System.Windows.Forms.Button btnInsert;
+        private System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.Button btnVerDatos;
     }
 }
 

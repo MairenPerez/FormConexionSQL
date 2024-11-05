@@ -99,5 +99,27 @@ namespace ConexionBBDD
             else
                 MessageBox.Show("Conexión cerrada. Abra la conexión antes de insertar un nuevo trabajo");
         }
+
+        private void btnVerDatos_Click(object sender, EventArgs e)
+        {
+            // En el grid mostramos los datos de la tabla jobs
+            if (conexion != null && conexion.State == ConnectionState.Open)
+            {
+                try
+                {
+                    string query = "SELECT * FROM jobs";
+                    SqlDataAdapter adapter = new SqlDataAdapter(query, conexion);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    dataGridView.DataSource = table;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al mostrar los datos: " + ex.Message);
+                }
+            }
+            else
+                MessageBox.Show("Conexión cerrada. Abra la conexión antes de ver los datos");
+        }
     }
 }
