@@ -28,9 +28,18 @@ namespace ConexionBBDD
                 txtEstadoBBDD.Text = "Open";
         }
 
+        /// <summary>
+        /// Abrimos la conexión con la base de datos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnConectar_Click(object sender, EventArgs e)
         {
-            string cadenaConexion = "Server=85.208.21.117,54321;Database=MairenEmployees;User Id=sa;Password=Sql#123456789;TrustServerCertificate=True;";
+            string cadenaConexion = "Server=85.208.21.117,54321;" +
+                "Database=MairenEmployees;" +
+                "User Id=sa;" +
+                "Password=Sql#123456789;" +
+                "TrustServerCertificate=True;";
 
             try
             {
@@ -47,20 +56,48 @@ namespace ConexionBBDD
             }
         }
 
+        /// <summary>
+        /// Cerramos la conexión con la base de datos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDesconectar_Click(object sender, EventArgs e)
         {
             try
             {
-                conexion.Close();
-                MessageBox.Show("Conexión cerrada con éxito");
-                btnConectar.Enabled = true;
-                btnDesconectar.Enabled = false;
-                txtEstadoBBDD.Text = "Closed"; // Actualiza el estado del TextBox
+                if (conexion != null && conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                    MessageBox.Show("Conexión cerrada con éxito");
+                    btnConectar.Enabled = true;
+                    btnDesconectar.Enabled = false;
+                    txtEstadoBBDD.Text = "Closed"; // Actualiza el estado del TextBox
+                }
+                else
+                {
+                    MessageBox.Show("La conexión ya está cerrada");
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al cerrar la conexión con la BBDD: " + ex.Message);
             }
+        }
+
+        /// <summary>
+        /// Insertamos un nuevo trabajo en la base de datos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnInsert_Click(object sender, EventArgs e)
+        {
+            if (conexion != null && conexion.State == ConnectionState.Open)
+            {
+                JobForm jobform = new JobForm();
+                jobform.ShowDialog();
+            }
+            else
+                MessageBox.Show("Conexión cerrada. Abra la conexión antes de insertar un nuevo trabajo");
         }
     }
 }

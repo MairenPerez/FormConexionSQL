@@ -36,8 +36,9 @@ namespace ConexionBBDD
         /// <returns></returns>
         public string ToInsert()
         {
-            return $"INSERT INTO jobs VALUES ({job_id}, '{job_title}', {min_salary}, {max_salary})";
+            return $"INSERT INTO jobs (job_id, job_title, min_salary, max_salary) VALUES ({job_id}, '{job_title}', {min_salary}, {max_salary})";
         }
+
 
         /// <summary>
         /// Actualiza un trabajo en la base de datos

@@ -31,6 +31,7 @@
             this.txtEstadoBBDD = new System.Windows.Forms.TextBox();
             this.btnDesconectar = new System.Windows.Forms.Button();
             this.btnConectar = new System.Windows.Forms.Button();
+            this.btnInsert = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtEstadoBBDD
@@ -69,11 +70,23 @@
             this.btnConectar.UseVisualStyleBackColor = true;
             this.btnConectar.Click += new System.EventHandler(this.btnConectar_Click);
             // 
+            // btnInsert
+            // 
+            this.btnInsert.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInsert.Location = new System.Drawing.Point(111, 117);
+            this.btnInsert.Name = "btnInsert";
+            this.btnInsert.Size = new System.Drawing.Size(182, 42);
+            this.btnInsert.TabIndex = 4;
+            this.btnInsert.Text = "Insertar datos";
+            this.btnInsert.UseVisualStyleBackColor = true;
+            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
+            // 
             // ConexionSQL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(417, 414);
+            this.Controls.Add(this.btnInsert);
             this.Controls.Add(this.btnConectar);
             this.Controls.Add(this.btnDesconectar);
             this.Controls.Add(this.txtEstadoBBDD);
@@ -90,6 +103,7 @@
         private System.Windows.Forms.TextBox txtEstadoBBDD;
         private System.Windows.Forms.Button btnDesconectar;
         private System.Windows.Forms.Button btnConectar;
+        private System.Windows.Forms.Button btnInsert;
     }
 }
 
