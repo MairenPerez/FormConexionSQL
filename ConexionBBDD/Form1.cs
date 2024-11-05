@@ -20,30 +20,30 @@ namespace ConexionBBDD
             InitializeComponent();
         }
 
-        /// <summary>
-        /// Si el botón Conectar está habilitado, cambiamos el texto a "Conectado"
-        /// Si está deshabilitado, cambiamos el texto a "Desconectado"
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void txtEstadoBBDD_TextChanged(object sender, EventArgs e)
         {
-            if (btnConectar.Enabled == true)
-                txtEstadoBBDD.Text = "Open";
-            else
+            if (btnConectar.Enabled)
                 txtEstadoBBDD.Text = "Closed";
+            else
+                txtEstadoBBDD.Text = "Open";
         }
 
         private void btnConectar_Click(object sender, EventArgs e)
         {
-            // Si el usuario le da al botón, iniciamos la conexión con la BBDD MairenEmployees
-            string cadenaConexion = "Server=85.208.21.117,54321;Database=MairenEmployees;User Id=sa;Password=Sql#123456789;TrustServerCertificate=True;";
+            string cadenaConexion = "Server=85.208.21.117,54321;Database=MairenEmployees;" +
+                "User Id=sa;" +
+                "Password=Sql#123456789;" +
+                "TrustServerCertificate=True;";
+
 
             try
             {
                 conexion = new SqlConnection(cadenaConexion);
                 conexion.Open();
                 MessageBox.Show("Conexión establecida con éxito");
+                btnConectar.Enabled = false;
+                btnDesconectar.Enabled = true;
+                txtEstadoBBDD.Text = "Open"; // Actualiza el estado del TextBox
             }
             catch (Exception ex)
             {
@@ -53,11 +53,20 @@ namespace ConexionBBDD
 
         private void btnDesconectar_Click(object sender, EventArgs e)
         {
-            // Si el usuario le da al botón, cerramos la conexión con la BBDD MairenEmployees
             try
             {
-                conexion.Close();
-                MessageBox.Show("Conexión cerrada con éxito");
+                if (conexion != null && conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                    MessageBox.Show("Conexión cerrada con éxito");
+                    btnConectar.Enabled = true;
+                    btnDesconectar.Enabled = false;
+                    txtEstadoBBDD.Text = "Closed"; // Actualiza el estado del TextBox
+                }
+                else
+                {
+                    MessageBox.Show("La conexión ya está cerrada.");
+                }
             }
             catch (Exception ex)
             {

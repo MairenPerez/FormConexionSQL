@@ -36,10 +36,12 @@
             // txtEstadoBBDD
             // 
             this.txtEstadoBBDD.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.txtEstadoBBDD.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtEstadoBBDD.Enabled = false;
             this.txtEstadoBBDD.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEstadoBBDD.Location = new System.Drawing.Point(12, 12);
             this.txtEstadoBBDD.Name = "txtEstadoBBDD";
-            this.txtEstadoBBDD.Size = new System.Drawing.Size(393, 27);
+            this.txtEstadoBBDD.Size = new System.Drawing.Size(393, 20);
             this.txtEstadoBBDD.TabIndex = 0;
             this.txtEstadoBBDD.Text = "Closed";
             this.txtEstadoBBDD.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
