@@ -10,10 +10,10 @@ namespace ConexionBBDD
     {
         public int job_id { get; set; }
         public string job_title { get; set; }
-        public double min_salary { get; set; }
-        public double max_salary { get; set; }
+        public double? min_salary { get; set; }
+        public double? max_salary { get; set; }
 
-        public Job(int job_id, string job_title, double min_salary, double max_salary)
+        public Job(int job_id, string job_title, double? min_salary, double? max_salary)
         {
             this.job_id = job_id;
             this.job_title = job_title;
@@ -36,9 +36,8 @@ namespace ConexionBBDD
         /// <returns></returns>
         public string ToInsert()
         {
-            return $"INSERT INTO jobs (job_id, job_title, min_salary, max_salary) VALUES ({job_id}, '{job_title}', {min_salary}, {max_salary})";
+            return $"INSERT INTO jobs (job_id, job_title, min_salary, max_salary) VALUES ({job_id}, '{job_title}', {min_salary?.ToString().Replace(',', '.') ?? "NULL"}, {max_salary?.ToString().Replace(',', '.') ?? "NULL"})";
         }
-
 
         /// <summary>
         /// Actualiza un trabajo en la base de datos
@@ -46,7 +45,7 @@ namespace ConexionBBDD
         /// <returns></returns>
         public string ToUpdate()
         {
-            return $"UPDATE jobs SET job_title = '{job_title}', min_salary = {min_salary}, max_salary = {max_salary} WHERE job_id = {job_id}";
+            return $"UPDATE jobs SET job_title = '{job_title}', min_salary = {min_salary?.ToString().Replace(',', '.') ?? "NULL"}, max_salary = {max_salary?.ToString().Replace(',', '.') ?? "NULL"} WHERE job_id = {job_id}";
         }
     }
 }

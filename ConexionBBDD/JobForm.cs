@@ -62,15 +62,20 @@ namespace ConexionBBDD
                     conexion.Close();
                 }
 
-                MessageBox.Show("Job saved successfully!");
-
+                MessageBox.Show("Trabajo insertado con éxito");
                 this.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
+            finally
+            {
+                if (conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
         }
-
     }
 }
