@@ -37,7 +37,7 @@ namespace ConexionBBDD
         private void btnConectar_Click(object sender, EventArgs e)
         {
             // Si el usuario le da al botón, iniciamos la conexión con la BBDD MairenEmployees
-            string cadenaConexion = "Server= 85.208.21.117,54321;Database=MairenEmployees;User Id=sa;Password=Sql#123456789;";
+            string cadenaConexion = "Server=85.208.21.117,54321;Database=MairenEmployees;User Id=sa;Password=Sql#123456789;TrustServerCertificate=True;";
 
             try
             {
