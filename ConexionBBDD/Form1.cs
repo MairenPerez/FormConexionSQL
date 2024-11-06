@@ -121,5 +121,10 @@ namespace ConexionBBDD
             else
                 MessageBox.Show("Conexión cerrada. Abra la conexión antes de ver los datos");
         }
+
+        private void dataGridView_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

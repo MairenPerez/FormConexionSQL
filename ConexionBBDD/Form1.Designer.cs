@@ -34,6 +34,7 @@
             this.btnInsert = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.btnVerDatos = new System.Windows.Forms.Button();
+            this.btnActualizar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -93,6 +94,7 @@
             this.dataGridView.RowTemplate.Height = 24;
             this.dataGridView.Size = new System.Drawing.Size(623, 355);
             this.dataGridView.TabIndex = 5;
+            this.dataGridView.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentDoubleClick);
             // 
             // btnVerDatos
             // 
@@ -105,11 +107,22 @@
             this.btnVerDatos.UseVisualStyleBackColor = true;
             this.btnVerDatos.Click += new System.EventHandler(this.btnVerDatos_Click);
             // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActualizar.Location = new System.Drawing.Point(254, 640);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(182, 42);
+            this.btnActualizar.TabIndex = 7;
+            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            // 
             // ConexionSQL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(709, 622);
+            this.ClientSize = new System.Drawing.Size(697, 725);
+            this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnVerDatos);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.btnInsert);
@@ -133,6 +146,7 @@
         private System.Windows.Forms.Button btnInsert;
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.Button btnVerDatos;
+        private System.Windows.Forms.Button btnActualizar;
     }
 }
 
