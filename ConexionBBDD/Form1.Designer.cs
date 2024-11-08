@@ -35,7 +35,10 @@
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.btnVerDatos = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
+            this.btnMostrarEmpleados = new System.Windows.Forms.Button();
+            this.dataGridViewEmp = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmp)).BeginInit();
             this.SuspendLayout();
             // 
             // txtEstadoBBDD
@@ -88,7 +91,7 @@
             // dataGridView
             // 
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Location = new System.Drawing.Point(39, 255);
+            this.dataGridView.Location = new System.Drawing.Point(31, 255);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowHeadersWidth = 51;
             this.dataGridView.RowTemplate.Height = 24;
@@ -110,7 +113,7 @@
             // btnActualizar
             // 
             this.btnActualizar.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActualizar.Location = new System.Drawing.Point(254, 640);
+            this.btnActualizar.Location = new System.Drawing.Point(235, 631);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(182, 42);
             this.btnActualizar.TabIndex = 7;
@@ -118,11 +121,34 @@
             this.btnActualizar.UseVisualStyleBackColor = true;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
+            // btnMostrarEmpleados
+            // 
+            this.btnMostrarEmpleados.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMostrarEmpleados.Location = new System.Drawing.Point(985, 181);
+            this.btnMostrarEmpleados.Name = "btnMostrarEmpleados";
+            this.btnMostrarEmpleados.Size = new System.Drawing.Size(182, 42);
+            this.btnMostrarEmpleados.TabIndex = 8;
+            this.btnMostrarEmpleados.Text = "Mostrar Empleados";
+            this.btnMostrarEmpleados.UseVisualStyleBackColor = true;
+            this.btnMostrarEmpleados.Click += new System.EventHandler(this.btnMostrarEmpleados_Click);
+            // 
+            // dataGridViewEmp
+            // 
+            this.dataGridViewEmp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewEmp.Location = new System.Drawing.Point(706, 255);
+            this.dataGridViewEmp.Name = "dataGridViewEmp";
+            this.dataGridViewEmp.RowHeadersWidth = 51;
+            this.dataGridViewEmp.RowTemplate.Height = 24;
+            this.dataGridViewEmp.Size = new System.Drawing.Size(866, 355);
+            this.dataGridViewEmp.TabIndex = 9;
+            // 
             // ConexionSQL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(697, 725);
+            this.ClientSize = new System.Drawing.Size(1614, 685);
+            this.Controls.Add(this.dataGridViewEmp);
+            this.Controls.Add(this.btnMostrarEmpleados);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnVerDatos);
             this.Controls.Add(this.dataGridView);
@@ -134,6 +160,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Conexión  a SQL";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmp)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -148,6 +175,8 @@
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.Button btnVerDatos;
         private System.Windows.Forms.Button btnActualizar;
+        private System.Windows.Forms.Button btnMostrarEmpleados;
+        private System.Windows.Forms.DataGridView dataGridViewEmp;
     }
 }
 

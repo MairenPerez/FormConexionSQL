@@ -35,6 +35,7 @@ namespace ConexionBBDD
         /// <param name="e"></param>
         private void btnConectar_Click(object sender, EventArgs e)
         {
+
             string cadenaConexion = "Server=85.208.21.117,54321;" +
                 "Database=MairenEmployees;" +
                 "User Id=sa;" +
@@ -134,20 +135,20 @@ namespace ConexionBBDD
         /// <param name="e"></param>
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            // Cuando el usuario modifica los datos, al darle a actualizar se deben guardar los cambios en la BBDD
+            // Cuando el usuario modifica los datos, al darle a actualizar se deben guardar los cambios en la BBDD también cuando se añade un nuevo registro
+
             if (conexion != null && conexion.State == ConnectionState.Open)
             {
                 try
                 {
                     string query = "SELECT * FROM jobs";
-                    using (SqlDataAdapter adapter = new SqlDataAdapter(query, conexion))
-                    {
-                        using (SqlCommandBuilder builder = new SqlCommandBuilder(adapter))
-                        {
-                            DataTable table = (DataTable)dataGridView.DataSource ?? new DataTable();
-                            adapter.Update(table);
-                        }
-                    }
+                    SqlDataAdapter adapter = new SqlDataAdapter(query, conexion);
+                    SqlCommandBuilder builder = new SqlCommandBuilder(adapter);
+                    adapter.UpdateCommand = builder.GetUpdateCommand();
+                    adapter.InsertCommand = builder.GetInsertCommand();
+                    adapter.DeleteCommand = builder.GetDeleteCommand();
+                    adapter.Update((DataTable)dataGridView.DataSource);
+                    MessageBox.Show("Datos actualizados correctamente");
                 }
                 catch (Exception ex)
                 {
@@ -155,10 +156,24 @@ namespace ConexionBBDD
                 }
             }
             else
-            {
                 MessageBox.Show("Conexión cerrada. Abra la conexión antes de actualizar los datos");
-            }
         }
 
+        private void btnMostrarEmpleados_Click(object sender, EventArgs e)
+        {
+            DataClasses1DataContext db = new DataClasses1DataContext();
+            var empleados = from emp in db.employees
+                            where emp.first_name == "Steve"
+                            select emp;
+
+            dataGridViewEmp.DataSource = empleados;
+
+
+        }
+        // DataClasses1DataContext db = new DataClasses1DataContext();
+        // Sacar lista empleados
+        /*
+         * var data 
+         */
     }
-}
+}   

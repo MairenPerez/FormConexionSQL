@@ -34,12 +34,11 @@ namespace ConexionBBDD
         {
             try
             {
-                int job_id = Convert.ToInt32(txtjob_id.Text);
                 string job_title = txtjob_title.Text;
                 double min_salary = Convert.ToDouble(txtmin_salary.Text);
                 double max_salary = Convert.ToDouble(txtmax_salary.Text);
 
-                Job job = new Job(job_id, job_title, min_salary, max_salary);
+                Job job = new Job(0, job_title, min_salary, max_salary); // El ID no es necesario aquí
 
                 // Ejecutar la consulta SQL para insertar los datos
                 using (SqlCommand command = new SqlCommand())
@@ -47,16 +46,11 @@ namespace ConexionBBDD
                     command.Connection = conexion;
                     conexion.Open();
 
-                    // Activar IDENTITY_INSERT
-                    command.CommandText = "SET IDENTITY_INSERT jobs ON";
-                    command.ExecuteNonQuery();
-
-                    // Insertar los datos
-                    command.CommandText = job.ToInsert();
-                    command.ExecuteNonQuery();
-
-                    // Desactivar IDENTITY_INSERT
-                    command.CommandText = "SET IDENTITY_INSERT jobs OFF";
+                    // Insertar los datos sin especificar job_id
+                    command.CommandText = "INSERT INTO jobs (job_title, min_salary, max_salary) VALUES (@job_title, @min_salary, @max_salary)";
+                    command.Parameters.AddWithValue("@job_title", job_title);
+                    command.Parameters.AddWithValue("@min_salary", min_salary);
+                    command.Parameters.AddWithValue("@max_salary", max_salary);
                     command.ExecuteNonQuery();
 
                     conexion.Close();
@@ -77,5 +71,6 @@ namespace ConexionBBDD
                 }
             }
         }
+
     }
 }

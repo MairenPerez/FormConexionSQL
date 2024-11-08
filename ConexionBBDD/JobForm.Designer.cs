@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.lblNewJob = new System.Windows.Forms.Label();
-            this.lblJob_id = new System.Windows.Forms.Label();
-            this.txtjob_id = new System.Windows.Forms.TextBox();
             this.txtjob_title = new System.Windows.Forms.TextBox();
             this.lblJobTitle = new System.Windows.Forms.Label();
             this.txtmin_salary = new System.Windows.Forms.TextBox();
@@ -50,30 +48,11 @@
             this.lblNewJob.TabIndex = 0;
             this.lblNewJob.Text = "New Job";
             // 
-            // lblJob_id
-            // 
-            this.lblJob_id.AutoSize = true;
-            this.lblJob_id.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblJob_id.Location = new System.Drawing.Point(67, 87);
-            this.lblJob_id.Name = "lblJob_id";
-            this.lblJob_id.Size = new System.Drawing.Size(22, 20);
-            this.lblJob_id.TabIndex = 1;
-            this.lblJob_id.Text = "Id";
-            // 
-            // txtjob_id
-            // 
-            this.txtjob_id.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtjob_id.Font = new System.Drawing.Font("Segoe UI Variable Small", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtjob_id.Location = new System.Drawing.Point(95, 87);
-            this.txtjob_id.Name = "txtjob_id";
-            this.txtjob_id.Size = new System.Drawing.Size(50, 20);
-            this.txtjob_id.TabIndex = 2;
-            // 
             // txtjob_title
             // 
             this.txtjob_title.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtjob_title.Font = new System.Drawing.Font("Segoe UI Variable Small", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtjob_title.Location = new System.Drawing.Point(211, 87);
+            this.txtjob_title.Location = new System.Drawing.Point(121, 79);
             this.txtjob_title.Name = "txtjob_title";
             this.txtjob_title.Size = new System.Drawing.Size(187, 20);
             this.txtjob_title.TabIndex = 4;
@@ -82,7 +61,7 @@
             // 
             this.lblJobTitle.AutoSize = true;
             this.lblJobTitle.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblJobTitle.Location = new System.Drawing.Point(162, 87);
+            this.lblJobTitle.Location = new System.Drawing.Point(72, 79);
             this.lblJobTitle.Name = "lblJobTitle";
             this.lblJobTitle.Size = new System.Drawing.Size(43, 20);
             this.lblJobTitle.TabIndex = 3;
@@ -150,8 +129,6 @@
             this.Controls.Add(this.lblMinSal);
             this.Controls.Add(this.txtjob_title);
             this.Controls.Add(this.lblJobTitle);
-            this.Controls.Add(this.txtjob_id);
-            this.Controls.Add(this.lblJob_id);
             this.Controls.Add(this.lblNewJob);
             this.Name = "JobForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -164,8 +141,6 @@
         #endregion
 
         private System.Windows.Forms.Label lblNewJob;
-        private System.Windows.Forms.Label lblJob_id;
-        private System.Windows.Forms.TextBox txtjob_id;
         private System.Windows.Forms.TextBox txtjob_title;
         private System.Windows.Forms.Label lblJobTitle;
         private System.Windows.Forms.TextBox txtmin_salary;

@@ -80,7 +80,7 @@ namespace ConexionBBDD
         /// <summary>
         /// Insertamos un nuevo trabajo dentro de la BBDD y obtenemos el ID generado.
         /// </summary>
-        public void InsertJobWithId(Job job)
+        public void GetById(Job job)
         {
             string query = @"
             INSERT INTO jobs (job_title, min_salary, max_salary) 
