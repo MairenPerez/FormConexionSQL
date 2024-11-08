@@ -126,5 +126,40 @@ namespace ConexionBBDD
         {
 
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            // Cuando el usuario modifica los datos, al darle a actualizar se deben guardar los cambios en la BBDD
+            if (conexion != null && conexion.State == ConnectionState.Open)
+            {
+                try
+                {
+                    string query = "SELECT * FROM jobs";
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(query, conexion))
+                    {
+                        using (SqlCommandBuilder builder = new SqlCommandBuilder(adapter))
+                        {
+                            DataTable table = (DataTable)dataGridView.DataSource ?? new DataTable();
+                            adapter.Fill(table);
+                            adapter.Update(table);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al actualizar los datos: " + ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Conexión cerrada. Abra la conexión antes de actualizar los datos");
+            }
+        }
+
     }
 }

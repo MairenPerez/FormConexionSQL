@@ -55,7 +55,20 @@ namespace ConexionBBDD
                 try
                 {
                     conexionBD.OpenConnection();
-                    command.ExecuteNonQuery();
+
+                    int rowsAffected = command.ExecuteNonQuery(); // Verificar filas afectadas
+                    if (rowsAffected == 0)
+                    {
+                        Console.WriteLine("No se actualizó ningún registro. Verifique que el job_id existe.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Registro actualizado correctamente.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error al actualizar el registro: " + ex.Message);
                 }
                 finally
                 {
@@ -63,6 +76,8 @@ namespace ConexionBBDD
                 }
             }
         }
+
+
 
         /// <summary>
         /// Obtenemos el trabajo por su ID.
