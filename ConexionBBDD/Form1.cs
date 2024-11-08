@@ -163,17 +163,11 @@ namespace ConexionBBDD
         {
             DataClasses1DataContext db = new DataClasses1DataContext();
             var empleados = from emp in db.employees
-                            where emp.first_name == "Steve"
+                            where emp.first_name.Contains("S")
                             select emp;
+            employees theOne = empleados.FirstOrDefault(); // Cambiar 'data' por 'empleados'
 
             dataGridViewEmp.DataSource = empleados;
-
-
         }
-        // DataClasses1DataContext db = new DataClasses1DataContext();
-        // Sacar lista empleados
-        /*
-         * var data 
-         */
     }
 }   
