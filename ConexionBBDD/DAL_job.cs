@@ -77,40 +77,33 @@ namespace ConexionBBDD
             }
         }
 
-
-
         /// <summary>
-        /// Obtenemos el trabajo por su ID.
+        /// Insertamos un nuevo trabajo dentro de la BBDD y obtenemos el ID generado.
         /// </summary>
-        public Job GetJobById(int jobId)
+        public void InsertJobWithId(Job job)
         {
-            string query = "SELECT job_id, job_title, min_salary, max_salary FROM jobs WHERE job_id = @JobId";
+            string query = @"
+            INSERT INTO jobs (job_title, min_salary, max_salary) 
+            OUTPUT INSERTED.job_id 
+            VALUES (@job_title, @min_salary, @max_salary)";
+
             using (SqlCommand command = new SqlCommand(query, conexionBD.Connection))
             {
-                command.Parameters.Add(new SqlParameter("@JobId", SqlDbType.Int) { Value = jobId });
+                command.Parameters.Add(new SqlParameter("@job_title", SqlDbType.NVarChar, 100) { Value = job.job_title });
+                command.Parameters.Add(new SqlParameter("@min_salary", SqlDbType.Float) { Value = job.min_salary ?? (object)DBNull.Value });
+                command.Parameters.Add(new SqlParameter("@max_salary", SqlDbType.Float) { Value = job.max_salary ?? (object)DBNull.Value });
 
                 try
                 {
                     conexionBD.OpenConnection();
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            return new Job(
-                                reader.GetInt32(0),
-                                reader.GetString(1),
-                                reader.IsDBNull(2) ? (double?)null : reader.GetDouble(2),
-                                reader.IsDBNull(3) ? (double?)null : reader.GetDouble(3)
-                            );
-                        }
-                    }
+                    job.job_id = (int)command.ExecuteScalar(); // Captura el ID generado
+                    Console.WriteLine("Trabajo insertado con ID: " + job.job_id);
                 }
                 finally
                 {
                     conexionBD.CloseConnection();
                 }
             }
-            return null;
         }
 
         /// <summary>

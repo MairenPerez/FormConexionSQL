@@ -145,7 +145,6 @@ namespace ConexionBBDD
                         using (SqlCommandBuilder builder = new SqlCommandBuilder(adapter))
                         {
                             DataTable table = (DataTable)dataGridView.DataSource ?? new DataTable();
-                            adapter.Fill(table);
                             adapter.Update(table);
                         }
                     }
