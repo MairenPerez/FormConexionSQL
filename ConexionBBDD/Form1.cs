@@ -159,6 +159,7 @@ namespace ConexionBBDD
                 MessageBox.Show("Conexión cerrada. Abra la conexión antes de actualizar los datos");
         }
 
+        // EMPLEADOS
         private void btnMostrarEmpleados_Click(object sender, EventArgs e)
         {
             DataClasses1DataContext db = new DataClasses1DataContext();
@@ -166,6 +167,9 @@ namespace ConexionBBDD
                             where emp.first_name.Contains("S")
                             select emp;
             employees theOne = empleados.FirstOrDefault(); // Cambiar 'data' por 'empleados'
+
+            txtNombre.Text = theOne.first_name; // Selecciona el primer empleado de la lista
+
 
             dataGridViewEmp.DataSource = empleados;
         }

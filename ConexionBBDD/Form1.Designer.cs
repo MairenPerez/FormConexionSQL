@@ -37,6 +37,8 @@
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnMostrarEmpleados = new System.Windows.Forms.Button();
             this.dataGridViewEmp = new System.Windows.Forms.DataGridView();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.btnInsertarEmp = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmp)).BeginInit();
             this.SuspendLayout();
@@ -47,7 +49,7 @@
             this.txtEstadoBBDD.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtEstadoBBDD.Enabled = false;
             this.txtEstadoBBDD.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEstadoBBDD.Location = new System.Drawing.Point(155, 19);
+            this.txtEstadoBBDD.Location = new System.Drawing.Point(147, 14);
             this.txtEstadoBBDD.Name = "txtEstadoBBDD";
             this.txtEstadoBBDD.Size = new System.Drawing.Size(393, 20);
             this.txtEstadoBBDD.TabIndex = 0;
@@ -58,7 +60,7 @@
             // btnDesconectar
             // 
             this.btnDesconectar.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDesconectar.Location = new System.Drawing.Point(360, 65);
+            this.btnDesconectar.Location = new System.Drawing.Point(352, 40);
             this.btnDesconectar.Name = "btnDesconectar";
             this.btnDesconectar.Size = new System.Drawing.Size(188, 42);
             this.btnDesconectar.TabIndex = 2;
@@ -69,7 +71,7 @@
             // btnConectar
             // 
             this.btnConectar.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConectar.Location = new System.Drawing.Point(155, 65);
+            this.btnConectar.Location = new System.Drawing.Point(147, 40);
             this.btnConectar.Name = "btnConectar";
             this.btnConectar.Size = new System.Drawing.Size(182, 42);
             this.btnConectar.TabIndex = 3;
@@ -80,11 +82,11 @@
             // btnInsert
             // 
             this.btnInsert.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInsert.Location = new System.Drawing.Point(254, 124);
+            this.btnInsert.Location = new System.Drawing.Point(254, 109);
             this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(182, 42);
+            this.btnInsert.Size = new System.Drawing.Size(195, 57);
             this.btnInsert.TabIndex = 4;
-            this.btnInsert.Text = "Insertar datos";
+            this.btnInsert.Text = "Añadir nuevo trabajo";
             this.btnInsert.UseVisualStyleBackColor = true;
             this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
@@ -102,9 +104,9 @@
             // btnVerDatos
             // 
             this.btnVerDatos.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVerDatos.Location = new System.Drawing.Point(254, 181);
+            this.btnVerDatos.Location = new System.Drawing.Point(254, 174);
             this.btnVerDatos.Name = "btnVerDatos";
-            this.btnVerDatos.Size = new System.Drawing.Size(182, 42);
+            this.btnVerDatos.Size = new System.Drawing.Size(195, 57);
             this.btnVerDatos.TabIndex = 6;
             this.btnVerDatos.Text = "Ver datos";
             this.btnVerDatos.UseVisualStyleBackColor = true;
@@ -124,11 +126,11 @@
             // btnMostrarEmpleados
             // 
             this.btnMostrarEmpleados.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMostrarEmpleados.Location = new System.Drawing.Point(985, 181);
+            this.btnMostrarEmpleados.Location = new System.Drawing.Point(978, 172);
             this.btnMostrarEmpleados.Name = "btnMostrarEmpleados";
-            this.btnMostrarEmpleados.Size = new System.Drawing.Size(182, 42);
+            this.btnMostrarEmpleados.Size = new System.Drawing.Size(189, 57);
             this.btnMostrarEmpleados.TabIndex = 8;
-            this.btnMostrarEmpleados.Text = "Mostrar Empleados";
+            this.btnMostrarEmpleados.Text = "Mostrar empleados";
             this.btnMostrarEmpleados.UseVisualStyleBackColor = true;
             this.btnMostrarEmpleados.Click += new System.EventHandler(this.btnMostrarEmpleados_Click);
             // 
@@ -142,11 +144,34 @@
             this.dataGridViewEmp.Size = new System.Drawing.Size(866, 355);
             this.dataGridViewEmp.TabIndex = 9;
             // 
+            // txtNombre
+            // 
+            this.txtNombre.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNombre.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombre.Location = new System.Drawing.Point(841, 19);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(393, 20);
+            this.txtNombre.TabIndex = 10;
+            this.txtNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // btnInsertarEmp
+            // 
+            this.btnInsertarEmp.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInsertarEmp.Location = new System.Drawing.Point(978, 109);
+            this.btnInsertarEmp.Name = "btnInsertarEmp";
+            this.btnInsertarEmp.Size = new System.Drawing.Size(189, 57);
+            this.btnInsertarEmp.TabIndex = 11;
+            this.btnInsertarEmp.Text = "Añadir nuevo empleado";
+            this.btnInsertarEmp.UseVisualStyleBackColor = true;
+            // 
             // ConexionSQL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1614, 685);
+            this.Controls.Add(this.btnInsertarEmp);
+            this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.dataGridViewEmp);
             this.Controls.Add(this.btnMostrarEmpleados);
             this.Controls.Add(this.btnActualizar);
@@ -177,6 +202,8 @@
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnMostrarEmpleados;
         private System.Windows.Forms.DataGridView dataGridViewEmp;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.Button btnInsertarEmp;
     }
 }
 
